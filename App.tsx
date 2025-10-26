@@ -6,8 +6,9 @@ import Experience from './components/Experience';
 import Projects from './components/Projects';
 import Gallery from './components/Gallery';
 import Video from './components/Video';
+import Testimonials from './components/Testimonials';
 import { MailIcon } from './components/IconComponents';
-import { profile, socials, aboutMe, skills, workExperience, projects, galleryImages, videoUrl, cvUrl, contactEmail } from './constants';
+import { profile, socials, aboutMe, skills, workExperience, projects, galleryImages, videoUrl, cvUrl, contactEmail, testimonials } from './constants';
 
 const App: React.FC = () => {
   const [theme, setTheme] = useState<'light' | 'dark'>(() => {
@@ -46,6 +47,7 @@ const App: React.FC = () => {
           <Skills skills={skills} />
           <Experience experiences={workExperience} />
           <Projects projects={projects} />
+          <Testimonials testimonials={testimonials} />
           <Gallery images={galleryImages} />
           <Video videoUrl={videoUrl} />
         </div>

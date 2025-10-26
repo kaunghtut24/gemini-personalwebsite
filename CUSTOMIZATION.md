@@ -25,6 +25,7 @@ The file contains comments and examples for each section:
 -   **`projects`**: Showcase your best work.
 -   **`galleryImages`**: Images for the photo gallery.
 -   **`videoUrl`**: An embeddable YouTube video link.
+-   **`testimonials`**: Client/colleague testimonials with names, roles, companies, and optional ratings (1-5 stars).
 
 ### Step 3: Run the Script
 Once you've saved your changes to `customize.js`, open your terminal, navigate to the project's root directory, and run the following command:

@@ -114,6 +114,36 @@ const userData = {
     },
   ],
   videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ?si=bTeF-4b7g_f3hE8d", // Use the 'embed' link from YouTube.
+  testimonials: [
+    {
+      id: 1,
+      name: "Sarah Johnson",
+      role: "Product Manager",
+      company: "Tech Corp",
+      avatarUrl: "https://picsum.photos/id/64/200/200",
+      content: "Working with Alex was an absolute pleasure. Their attention to detail and ability to translate complex requirements into elegant solutions is remarkable. They delivered our project ahead of schedule with exceptional quality.",
+      rating: 5 // Optional: 1-5 star rating
+    },
+    {
+      id: 2,
+      name: "Michael Chen",
+      role: "CTO",
+      company: "StartupHub",
+      avatarUrl: "https://picsum.photos/id/65/200/200",
+      content: "Alex is a talented developer who brings both technical expertise and creative problem-solving to every project. Their code is clean, well-documented, and maintainable. I highly recommend them for any development work.",
+      rating: 5
+    },
+    {
+      id: 3,
+      name: "Emily Rodriguez",
+      role: "Design Lead",
+      company: "Creative Agency",
+      avatarUrl: "https://picsum.photos/id/66/200/200",
+      content: "The collaboration with Alex was fantastic. They have a great eye for design implementation and always ensure the final product matches our vision perfectly. Their responsive designs work flawlessly across all devices.",
+      rating: 5
+    }
+    // You can add more testimonials or remove them as needed
+  ]
 };
 
 // --- STEP 2: RUN THE SCRIPT ---
@@ -186,6 +216,8 @@ export const projects = ${JSON.stringify(data.projects, null, 2)};
 export const galleryImages = ${JSON.stringify(data.galleryImages, null, 2)};
 
 export const videoUrl = \`${data.videoUrl}\`;
+
+export const testimonials = ${JSON.stringify(data.testimonials, null, 2)};
 `;
 
   return fileContent.trim() + '\n';
