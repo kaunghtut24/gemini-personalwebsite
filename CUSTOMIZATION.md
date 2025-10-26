@@ -16,7 +16,7 @@ Inside `customize.js`, you will find a JavaScript object called `userData`. It's
 
 The file contains comments and examples for each section:
 -   **`profile`**: Your name, title, a short bio for the header, and a URL to your avatar image.
--   **`cvUrl`**: A public link to your resume/CV (e.g., a PDF stored on Google Drive or Dropbox).
+-   **`cvUrl`**: (Optional) Previously used for external CV links. The site now generates a PDF CV dynamically from your profile data when clicking "Download CV".
 -   **`contactEmail`**: The email address for the "Say Hello" button.
 -   **`socials`**: Your social media links. Supported icons are "GitHub", "LinkedIn", "Twitter", and "Instagram".
 -   **`aboutMe`**: The main content for the "About Me" section. You can use multiple lines.
@@ -81,9 +81,15 @@ The site's primary color is cyan (#06b6d4). To change it:
 -   **Gallery Images**: A 1:1 aspect ratio (square) will look best in the grid, but any size will work.
 
 ### CV / Resume
-1.  Upload your resume as a PDF to a cloud service like Google Drive, Dropbox, or OneDrive.
-2.  Make sure the sharing settings are set to "Public" or "Anyone with the link can view".
-3.  Copy the shareable link and paste it into the `cvUrl` field in `customize.js`.
+The site now automatically generates a professional PDF CV from your profile data when users click "Download CV". This includes:
+- Your name, title, and contact information
+- Professional summary and about me section
+- Skills organized by category
+- Complete work experience with descriptions
+- Key projects with technologies used
+- Generation date footer
+
+The CV is generated dynamically using all the information you provide in `customize.js`, ensuring it's always up-to-date with your latest profile changes.
 
 ### Featured Video
 1.  Go to the YouTube video you want to feature.

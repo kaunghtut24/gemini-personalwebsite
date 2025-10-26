@@ -1,5 +1,6 @@
 import React from 'react';
 import { DownloadIcon, SunIcon, MoonIcon } from './IconComponents';
+import { generateCV } from '../utils/generateCV';
 
 interface Profile {
   name: string;
@@ -16,6 +17,21 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ profile, cvUrl, theme, toggleTheme }) => {
+  const [isGenerating, setIsGenerating] = React.useState(false);
+  
+  const handleDownloadCV = async () => {
+    setIsGenerating(true);
+    try {
+      // Small delay for better UX feedback
+      await new Promise(resolve => setTimeout(resolve, 500));
+      generateCV();
+    } catch (error) {
+      console.error('Error generating CV:', error);
+      alert('Failed to generate CV. Please try again.');
+    } finally {
+      setIsGenerating(false);
+    }
+  };
   return (
     <header className="flex flex-col sm:flex-row items-center justify-between gap-8">
       <div className="flex flex-col sm:flex-row items-center gap-8">
@@ -33,15 +49,23 @@ const Header: React.FC<HeaderProps> = ({ profile, cvUrl, theme, toggleTheme }) =
         </div>
       </div>
        <div className="flex items-center gap-4">
-        <a
-          href={cvUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex-shrink-0 inline-flex items-center gap-2 bg-white text-slate-700 font-semibold py-2 px-4 rounded-lg hover:bg-slate-200 transition-colors duration-300 ring-1 ring-slate-200 dark:bg-slate-800 dark:text-cyan-300 dark:hover:bg-slate-700 dark:ring-slate-700"
+        <button
+          onClick={handleDownloadCV}
+          disabled={isGenerating}
+          className="flex-shrink-0 inline-flex items-center gap-2 bg-white text-slate-700 font-semibold py-2 px-4 rounded-lg hover:bg-slate-200 transition-all duration-300 ring-1 ring-slate-200 dark:bg-slate-800 dark:text-cyan-300 dark:hover:bg-slate-700 dark:ring-slate-700 hover:shadow-lg active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-white dark:disabled:hover:bg-slate-800"
         >
-          <DownloadIcon className="w-5 h-5" />
-          Download CV
-        </a>
+          {isGenerating ? (
+            <>
+              <span className="w-5 h-5 border-2 border-slate-300 dark:border-cyan-300 border-t-transparent rounded-full animate-spin"></span>
+              Generating...
+            </>
+          ) : (
+            <>
+              <DownloadIcon className="w-5 h-5" />
+              Download CV
+            </>
+          )}
+        </button>
         <button
           onClick={toggleTheme}
           className="flex-shrink-0 inline-flex items-center justify-center h-10 w-10 bg-white text-slate-600 rounded-full hover:bg-slate-200 transition-colors duration-300 ring-1 ring-slate-200 dark:bg-slate-800 dark:text-cyan-300 dark:hover:bg-slate-700 dark:ring-slate-700"
