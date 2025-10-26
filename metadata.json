@@ -1,0 +1,5 @@
+{
+  "name": "Modern Personal Profile Page",
+  "description": "A sleek, modern, and easily customizable static personal profile page built with React and Tailwind CSS. It includes sections for a bio, social media links, a photo gallery, an embedded video, and a deployment guide.",
+  "requestFramePermissions": []
+}
